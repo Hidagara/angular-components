@@ -1,7 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import {
   MatAutocompleteModule,
@@ -35,13 +34,14 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule,
+  MatTooltipModule
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 
 
 @NgModule({
   exports: [
+    BrowserAnimationsModule,
     CdkTableModule,
     MatAutocompleteModule,
     MatButtonModule,
