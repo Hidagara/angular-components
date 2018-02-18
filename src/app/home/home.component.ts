@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit,  OnDestroy {
   }
 
   ngOnDestroy() {
-
+    this.numberOfSubscriptions.unsubscribe();
+    this.customSubscription.unsubscribe();
   }
 
 
@@ -62,7 +63,7 @@ export class HomeComponent implements OnInit,  OnDestroy {
         observer.next('package after complete, will not send');
       }, 7000);
     });
-    myObservable.subscribe(
+    this.customSubscription = myObservable.subscribe(
       (data: string) => {
         console.log(data);
       }, (error: string) => {console.log(error); },
@@ -72,7 +73,7 @@ export class HomeComponent implements OnInit,  OnDestroy {
 
   intervalExample(): void {
     const myNumbers = Observable.interval(1000);
-    myNumbers.subscribe(
+    this.numberOfSubscriptions = myNumbers.subscribe(
       (number: number) => {
         console.log(number);
       }
